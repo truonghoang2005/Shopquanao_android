@@ -1,0 +1,69 @@
+package com.example.shopquanao_android.ui.itemdetail
+
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.shopquanao_android.R
+import com.example.shopquanao_android.databinding.FragmentItemDetailBinding
+import com.example.shopquanao_android.ui.SliderItemDetail
+import com.example.shopquanao_android.ui.SliderItemDetailAdapter
+import com.example.shopquanao_android.ui.cart.CartFragment
+
+class ItemDetailFragment : Fragment() {
+
+    private var _binding: FragmentItemDetailBinding? = null
+    private val binding get() = _binding!!
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = FragmentItemDetailBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        // Lấy tên sản phẩm từ Bundle
+        val productName = arguments?.getString("product_name") ?: "Unknown Product"
+        binding.productName.text = productName
+
+        // Dữ liệu mẫu cho slider
+        val sliderItemsDetail = listOf(
+            SliderItemDetail(R.drawable.avatars),
+            SliderItemDetail(R.drawable.avatars),
+            SliderItemDetail(R.drawable.avatars),
+            SliderItemDetail(R.drawable.avatars),
+            SliderItemDetail(R.drawable.avatars),
+            SliderItemDetail(R.drawable.avatars),
+            SliderItemDetail(R.drawable.avatars)
+        )
+
+        // Thiết lập Slider RecyclerView
+        binding.recyclerView.apply {
+            layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+            adapter = SliderItemDetailAdapter(sliderItemsDetail)
+        }
+
+
+
+        // Xử lý sự kiện nhấn FloatingActionButton (giỏ hàng - chuyển sang CartFragment)
+        binding.floatingActionButton3.setOnClickListener {
+            // Chuyển sang CartFragment
+            val cartFragment = CartFragment()
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.nav_host_fragment_content_main, cartFragment)
+                .addToBackStack(null)
+                .commit()
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+}

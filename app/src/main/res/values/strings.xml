@@ -10,4 +10,6 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+    <string name="back_button_description">Quay lại</string>
+    <string name="cart_button_description">Mở giỏ hàng</string>
 </resources>
