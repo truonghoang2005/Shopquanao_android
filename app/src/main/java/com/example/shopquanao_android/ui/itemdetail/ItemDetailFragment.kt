@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.shopquanao_android.R
 import com.example.shopquanao_android.databinding.FragmentItemDetailBinding
@@ -53,12 +54,7 @@ class ItemDetailFragment : Fragment() {
 
         // Xử lý sự kiện nhấn FloatingActionButton (giỏ hàng - chuyển sang CartFragment)
         binding.floatingActionButton3.setOnClickListener {
-            // Chuyển sang CartFragment
-            val cartFragment = CartFragment()
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.nav_host_fragment_content_main, cartFragment)
-                .addToBackStack(null)
-                .commit()
+            findNavController().navigate(R.id.nav_cart)
         }
     }
 

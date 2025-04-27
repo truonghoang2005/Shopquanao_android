@@ -46,9 +46,14 @@ class HomeFragment : Fragment() {
         //  lập Slider RecyclerView
         binding.sliderRecyclerView.apply {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-            adapter = SliderAdapter(sliderItems)
+            adapter = SliderAdapter(sliderItems) { item ->
+                // Khi nhấn vào item trong slider, điều hướng đến ItemDetailFragment
+                val bundle = Bundle().apply {
+                    putString("product_name", item.text) // Truyền giá hoặc tên sản phẩm
+                }
+                findNavController().navigate(R.id.nav_itemdetail, bundle)
+            }
         }
-
         val gridItems = listOf(
             Item(R.drawable.avatars, "Product 1"),
             Item(R.drawable.avatars, "Product 2"),
@@ -72,12 +77,7 @@ class HomeFragment : Fragment() {
         }
 
         binding.floatingActionButton2.setOnClickListener {
-            // Chuyển sang CartFragment
-            val cartFragment = CartFragment()
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.nav_host_fragment_content_main, cartFragment)
-                .addToBackStack(null)
-                .commit()
+            findNavController().navigate(R.id.nav_cart)
         }
     }
 
