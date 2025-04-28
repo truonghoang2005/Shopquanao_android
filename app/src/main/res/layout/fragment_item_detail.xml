@@ -221,6 +221,22 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView3"
+                android:layout_width="match_parent"
+                android:layout_height="826dp"
+                android:background="#EDEDFB"
+                android:clipChildren="true"
+
+                android:clipToOutline="true"
+                android:clipToPadding="true"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:spanCount="2"
+                tools:listitem="@layout/slider_item">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
         </LinearLayout>
     </ScrollView>
 
