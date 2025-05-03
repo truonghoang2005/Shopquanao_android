@@ -1,5 +1,6 @@
 package com.example.shopquanao_android.ui.cart
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +13,8 @@ import com.example.shopquanao_android.databinding.FragmentCartBinding
 import com.example.shopquanao_android.ui.CartItem
 import com.example.shopquanao_android.ui.CartItemAdapter
 import android.widget.RadioButton
+import com.example.shopquanao_android.LoginActivity
+import com.google.firebase.auth.FirebaseAuth
 
 
 class CartFragment : Fragment() {
@@ -31,6 +34,12 @@ class CartFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         // Dữ liệu mẫu
+        val user = FirebaseAuth.getInstance().currentUser
+        if(user == null){
+            val intent = Intent(this.context, LoginActivity::class.java)
+            startActivity(intent)
+            findNavController().navigate(R.id.nav_home)
+        }
         val cartItems = listOf(
             CartItem(R.drawable.avatars,"Ten san pham","gia san pham","thong tin san pham"),
             CartItem(R.drawable.avatars,"Ten san pham","gia san pham","thong tin san pham"),

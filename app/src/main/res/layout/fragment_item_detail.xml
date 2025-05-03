@@ -75,28 +75,29 @@
                 tools:layout_editor_absoluteY="246dp">
 
                 <TextView
-                    android:id="@+id/textView8"
+                    android:id="@+id/txtPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="15dp"
                     android:text="Baggy jean unisex 21 - 34"
-                    android:textColor="#020202"
+                    android:textColor="#F60707"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/productName" />
+                    app:layout_constraintTop_toBottomOf="@+id/txtName" />
 
                 <TextView
-                    android:id="@+id/productName"
+                    android:id="@+id/txtName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
                     android:padding="15dp"
                     android:text="850.000 VND"
                     android:textColor="#000000"
-                    android:textSize="18sp"
+                    android:textSize="22sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -153,7 +154,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/textView18"
+                    android:id="@+id/txtCategory"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="220dp"
@@ -166,7 +167,7 @@
                     app:layout_constraintEnd_toEndOf="parent" />
 
                 <TextView
-                    android:id="@+id/textView19"
+                    android:id="@+id/txtDesc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
@@ -174,7 +175,7 @@
                     android:textColor="#000000"
                     android:textSize="14sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toTopOf="@+id/textView18"
+                    app:layout_constraintBottom_toTopOf="@+id/txtCategory"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.263"
                     app:layout_constraintStart_toEndOf="@+id/textView15"
@@ -198,7 +199,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
-                    android:text="Size"
+                    android:text="Mô tả"
                     android:textColor="#000000"
                     android:textSize="14sp"
                     android:textStyle="normal"
@@ -210,11 +211,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
-                    android:text="Loại quần áo"
+                    android:text="Loại thiết bị"
                     android:textColor="#000000"
                     android:textSize="14sp"
                     android:textStyle="normal"
-                    app:layout_constraintEnd_toStartOf="@+id/textView18"
+                    app:layout_constraintEnd_toStartOf="@+id/txtCategory"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView15" />
@@ -252,7 +253,7 @@
         app:layout_constraintVertical_bias="1.0">
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/btnAddCart"
             android:layout_width="145dp"
             android:layout_height="51dp"
             android:layout_marginTop="5dp"
@@ -268,7 +269,7 @@
             app:layout_constraintVertical_bias="0.0" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/btnMua"
             android:layout_width="145dp"
             android:layout_height="51dp"
             android:layout_marginTop="5dp"
@@ -279,7 +280,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.144"
-            app:layout_constraintStart_toEndOf="@+id/button3"
+            app:layout_constraintStart_toEndOf="@+id/btnAddCart"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0" />
     </androidx.constraintlayout.widget.ConstraintLayout>

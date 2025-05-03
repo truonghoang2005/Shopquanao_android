@@ -16,6 +16,16 @@
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/menu_slideshow" />
+        <item
+            android:id="@+id/nav_SignIn"
+            android:visible="true"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Đăng Nhập" />
+        <item
+            android:id="@+id/nav_SignOut"
+            android:visible="true"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Đăng xuất" />
 
     </group>
 </menu>
