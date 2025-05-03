@@ -1,24 +1,13 @@
 {
   "project_info": {
-<<<<<<< HEAD
-    "project_number": "1055954345222",
-    "firebase_url": "https://shopmangandroid-default-rtdb.asia-southeast1.firebasedatabase.app",
-    "project_id": "shopmangandroid",
-    "storage_bucket": "shopmangandroid.firebasestorage.app"
-=======
     "project_number": "191177466275",
     "project_id": "shopquanao-f09e3d10",
     "storage_bucket": "shopquanao-f09e3d10.firebasestorage.app"
->>>>>>> abf9db5887a2f9160246ff0f957a11af77e066f7
   },
   "client": [
     {
       "client_info": {
-<<<<<<< HEAD
-        "mobilesdk_app_id": "1:1055954345222:android:e9e002ae308a3e7be2d287",
-=======
         "mobilesdk_app_id": "1:191177466275:android:946ae833c3c7c8ea69ba16",
->>>>>>> abf9db5887a2f9160246ff0f957a11af77e066f7
         "android_client_info": {
           "package_name": "com.example.shopquanao_android"
         }
@@ -26,11 +15,37 @@
       "oauth_client": [],
       "api_key": [
         {
-<<<<<<< HEAD
-          "current_key": "AIzaSyCfDp3tWqNudLS2-v-qYg7E4SjBcEGwm5w"
-=======
           "current_key": "AIzaSyAaK5qXo5C_8-pjxPo8eiUWaFwHNTTO1UI"
->>>>>>> abf9db5887a2f9160246ff0f957a11af77e066f7
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
+{
+  "project_info": {
+    "project_number": "1055954345222",
+    "firebase_url": "https://shopmangandroid-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "shopmangandroid",
+    "storage_bucket": "shopmangandroid.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1055954345222:android:e9e002ae308a3e7be2d287",
+        "android_client_info": {
+          "package_name": "com.example.shopquanao_android"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCfDp3tWqNudLS2-v-qYg7E4SjBcEGwm5w"
         }
       ],
       "services": {
