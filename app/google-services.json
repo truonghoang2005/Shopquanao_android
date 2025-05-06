@@ -1,34 +1,5 @@
 {
   "project_info": {
-    "project_number": "191177466275",
-    "project_id": "shopquanao-f09e3d10",
-    "storage_bucket": "shopquanao-f09e3d10.firebasestorage.app"
-  },
-  "client": [
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:191177466275:android:946ae833c3c7c8ea69ba16",
-        "android_client_info": {
-          "package_name": "com.example.shopquanao_android"
-        }
-      },
-      "oauth_client": [],
-      "api_key": [
-        {
-          "current_key": "AIzaSyAaK5qXo5C_8-pjxPo8eiUWaFwHNTTO1UI"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": []
-        }
-      }
-    }
-  ],
-  "configuration_version": "1"
-}
-{
-  "project_info": {
     "project_number": "1055954345222",
     "firebase_url": "https://shopmangandroid-default-rtdb.asia-southeast1.firebasedatabase.app",
     "project_id": "shopmangandroid",

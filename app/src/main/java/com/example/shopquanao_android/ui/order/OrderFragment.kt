@@ -1,4 +1,4 @@
-package com.example.shopquanao_android.ui.cart
+package com.example.shopquanao_android.ui.order
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,24 +9,23 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.shopquanao_android.R
-import com.example.shopquanao_android.databinding.FragmentCartBinding
-import com.example.shopquanao_android.ui.CartItem
-import com.example.shopquanao_android.ui.CartItemAdapter
-import android.widget.RadioButton
+import com.example.shopquanao_android.databinding.FragmentOrderBinding
+import com.example.shopquanao_android.ui.OrderItem
+import com.example.shopquanao_android.ui.OrderItemAdapter
 import com.example.shopquanao_android.LoginActivity
 import com.google.firebase.auth.FirebaseAuth
 
 
-class CartFragment : Fragment() {
+class OrderFragment : Fragment() {
 
-    private var _binding: FragmentCartBinding? = null
+    private var _binding: FragmentOrderBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentCartBinding.inflate(inflater, container, false)
+        _binding = FragmentOrderBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -40,20 +39,18 @@ class CartFragment : Fragment() {
             startActivity(intent)
             findNavController().navigate(R.id.nav_home)
         }
-        val cartItems = listOf(
-            CartItem(R.drawable.avatars,"Ten san pham","gia san pham","thong tin san pham"),
-            CartItem(R.drawable.avatars,"Ten san pham","gia san pham","thong tin san pham"),
-            CartItem(R.drawable.avatars,"Ten san pham","gia san pham","thong tin san pham"),
-            CartItem(R.drawable.avatars,"Ten san pham","gia san pham","thong tin san pham")
+        val orderItems = listOf(
+            OrderItem(R.drawable.avatars,"Đã giao hàng","Tên sản phẩm","Địa chỉ", " giá"),
+            OrderItem(R.drawable.avatars,"Đã giao hàng","Tên sản phẩm","Địa chỉ", " giá"),
+            OrderItem(R.drawable.avatars,"Đã giao hàng","Tên sản phẩm","Địa chỉ", " giá"),
+            OrderItem(R.drawable.avatars,"Đã giao hàng","Tên sản phẩm","Địa chỉ", " giá"),
 
         )
 
-        //  lập Slider RecyclerView
-        binding.recyclerView2.apply {
+        binding.recyclerView.apply{
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-            adapter = CartItemAdapter(cartItems)
+            adapter = OrderItemAdapter(orderItems)
         }
-
 
 
     }

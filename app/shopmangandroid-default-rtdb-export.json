@@ -1,0 +1,118 @@
+{
+  "order": {
+    "-OPAE7FtnvKHgr515deZ": {
+      "address": "đà nẵng",
+      "id": "-OPAE7FtnvKHgr515deZ",
+      "orderItem": [
+        {
+          "photo": "switch",
+          "product_id": "2",
+          "product_name": "switch 4",
+          "product_price": 200
+        },
+        {
+          "photo": "switch",
+          "product_id": "3",
+          "product_name": "switch 2",
+          "product_price": 100
+        }
+      ],
+      "totalPrice": 300,
+      "user_id": "123",
+      "user_phonenumber": "0847583847"
+    },
+    "-OPALdu3mV2VwOCbCDNz": {
+      "address": "đà nẵng",
+      "id": "-OPALdu3mV2VwOCbCDNz",
+      "orderItem": [
+        {
+          "photo": "switch",
+          "product_id": "4",
+          "product_name": "switch 6",
+          "product_price": 300
+        },
+        {
+          "photo": "switch",
+          "product_id": "5",
+          "product_name": "switch 7",
+          "product_price": 400
+        }
+      ],
+      "totalPrice": 700,
+      "user_id": "124",
+      "user_phonenumber": "0847587647"
+    }
+  },
+  "product": {
+    "-OPFKoc61-ri9ymaJxrL": {
+      "category": "router",
+      "description": "Router Wi-Fi Băng Tần Kép 4G LTE AC1200",
+      "id": "-OPFKoc61-ri9ymaJxrL",
+      "name": "Router LTE AC1200",
+      "photo": "router1",
+      "price": 200
+    },
+    "-OPFKoc9bVIyO-M49QKw": {
+      "category": "router",
+      "description": "Router Wi-Fi 6 AX6000 8-Stream",
+      "id": "-OPFKoc9bVIyO-M49QKw",
+      "name": "Router AX6000 8-Stream",
+      "photo": "router2",
+      "price": 210
+    },
+    "-OPFKocAVMPVwniAcIyz": {
+      "category": "router",
+      "description": "ROUTER WIFI CHUẨN N TỐC ĐỘ 300MBPS TP-LINK TL-WR841N",
+      "id": "-OPFKocAVMPVwniAcIyz",
+      "name": "ROUTER TP-LINK TL-WR841N",
+      "photo": "router3",
+      "price": 220
+    },
+    "-OPFKocAVMPVwniAcIz-": {
+      "category": "switch",
+      "description": "Switch 8 Port TP-Link TL-SG108 (8 Port 10/100/1000 Vỏ kim loại)",
+      "id": "-OPFKocAVMPVwniAcIz-",
+      "name": "Switch 8 Port TP-Link TL-SG108",
+      "photo": "switch1",
+      "price": 230
+    },
+    "-OPFKocAVMPVwniAcIz0": {
+      "category": "switch",
+      "description": "APTEK SG1240 - Switch 24 port Gigabit unmanaged",
+      "id": "-OPFKocAVMPVwniAcIz0",
+      "name": "APTEK SG1240",
+      "photo": "switch2",
+      "price": 245
+    }
+  },
+  "user": {
+    "123": {
+      "cart": [
+        null,
+        {
+          "photo": "avatar",
+          "product_id": "1",
+          "product_name": "router 2901",
+          "product_price": 100
+        },
+        {
+          "photo": "avatar",
+          "product_id": "2",
+          "product_name": "router 3911",
+          "product_price": 200
+        }
+      ],
+      "id": "123",
+      "name": "binh"
+    },
+    "124": {
+      "id": "124",
+      "name": "lo tahng"
+    },
+    "jsxwNj7ievPEDYjxmSh1pyA9R773": {
+      "id": "jsxwNj7ievPEDYjxmSh1pyA9R773",
+      "name": "thang",
+      "phone": "0923847584"
+    }
+  }
+}

@@ -9,9 +9,9 @@
               <option name="connection">
                 <ConnectionSetting>
                   <option name="appId" value="com.example.shopquanao_android" />
-                  <option name="mobileSdkAppId" value="1:191177466275:android:946ae833c3c7c8ea69ba16" />
-                  <option name="projectId" value="shopquanao-f09e3d10" />
-                  <option name="projectNumber" value="191177466275" />
+                  <option name="mobileSdkAppId" value="1:1055954345222:android:e9e002ae308a3e7be2d287" />
+                  <option name="projectId" value="shopmangandroid" />
+                  <option name="projectNumber" value="1055954345222" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

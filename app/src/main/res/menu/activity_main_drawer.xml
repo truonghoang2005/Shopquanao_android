@@ -13,9 +13,9 @@
             android:icon="@drawable/cart_plus_solid"
             android:title="Giỏ Hàng" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_order"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
+            android:title="Đơn hàng" />
         <item
             android:id="@+id/nav_SignIn"
             android:visible="true"
