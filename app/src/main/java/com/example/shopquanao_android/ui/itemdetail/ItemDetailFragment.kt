@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.shopquanao_android.CheckoutActivity
 import com.example.shopquanao_android.Firebase.FirebaseHelper
 import com.example.shopquanao_android.LoginActivity
 import com.example.shopquanao_android.R
@@ -42,50 +43,45 @@ class ItemDetailFragment : Fragment() {
         // Lấy tên sản phẩm từ Bundle
         val productId = arguments?.getString("product_id") ?: "0"
         setProductInformation(productId)
-
-        // Dữ liệu mẫu cho slider
-
-
-//        val relativeItems = listOf(
-//            Item(R.drawable.avatars, "Product 1"),
-//            Item(R.drawable.avatars, "Product 2"),
-//            Item(R.drawable.avatars, "Product 3"),
-//            Item(R.drawable.avatars, "Product 4"),
-//            Item(R.drawable.avatars, "Product 1"),
-//            Item(R.drawable.avatars, "Product 2"),
-//            Item(R.drawable.avatars, "Product 3"),
-//            Item(R.drawable.avatars, "Product 4")
-//        )
-//        binding.recyclerView3.apply {
-//            adapter = ItemAdapter(relativeItems) { item ->
-//                // Khi nhấn vào item, điều hướng đến ItemDetailFragment và truyền tên sản phẩm
-//                val bundle = Bundle().apply {
-//                    putString("product_name", item.text)
-//                }
-//                findNavController().navigate(R.id.nav_itemdetail, bundle)
-//            }
-//        }
-
         setInformationSlide()
-        setOnClickFloatButton(productId)
-
+        setButtonAddcart(productId)
+        setButtonBuy(productId)
     }
 
-    private fun setOnClickFloatButton(Id: String) {
-        binding.floatingActionButton3.setOnClickListener {
-            val user = FirebaseAuth.getInstance().currentUser
-            if(user == null){
-                val intent = Intent(this.context, LoginActivity::class.java)
-                startActivity(intent)
-            }else{
-                FirebaseHelper.fetchProductByID(Id, { product->
-                    val itemCart = CartItem(product.id, product.name, product.photo, product.price)
-                    FirebaseHelper.saveCartItem(user.uid, itemCart)
-                    Toast.makeText(this.context, "Thêm thành công", Toast.LENGTH_SHORT).show()
-                })
-            }
+    private fun setButtonBuy(productId: String) {
+        binding.btnMua.setOnClickListener {
+            val intent = Intent(this.context, CheckoutActivity::class.java)
+            intent.putExtra("product_id", productId)
+            startActivity(intent)
         }
     }
+
+    private fun setButtonAddcart(productId: String) {
+        binding.btnAddCart.setOnClickListener {
+            FirebaseHelper.fetchProductByID(productId, {
+                    product ->
+                var cartItem = CartItem(product.id, product.name, product.photo, product.price)
+                FirebaseAuth.getInstance().currentUser?.let { it1 -> FirebaseHelper.saveCartItem(it1.uid, cartItem) }
+                Toast.makeText(this.context, "Thêm vào giỏ hàng thành công", Toast.LENGTH_SHORT).show()
+            })
+        }
+    }
+
+//    private fun setOnClickFloatButton(Id: String) {
+//        binding.floatingActionButton3.setOnClickListener {
+//            val user = FirebaseAuth.getInstance().currentUser
+//            if(user == null){
+//                val intent = Intent(this.context, LoginActivity::class.java)
+//                startActivity(intent)
+//            }else{
+//                FirebaseHelper.fetchProductByID(Id, { product->
+//                    val itemCart = CartItem(product.id, product.name, product.photo, product.price)
+//                    FirebaseHelper.saveCartItem(user.uid, itemCart)
+//                    Toast.makeText(this.context, "Thêm thành công", Toast.LENGTH_SHORT).show()
+//                })
+//            }
+//        }
+//    }
 
     private fun setInformationSlide() {
         FirebaseHelper.fetchAllProductData({

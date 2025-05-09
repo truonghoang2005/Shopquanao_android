@@ -8,6 +8,7 @@ import com.example.shopquanao_android.model.Order
 import com.example.shopquanao_android.model.Product
 import com.example.shopquanao_android.model.User
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -21,7 +22,7 @@ import com.google.firebase.database.ValueEventListener
 //Switch 8 Port TP-Link TL-SG108 (8 Port 10/100/1000 Vỏ kim loại)
 //APTEK SG1240 - Switch 24 port Gigabit unmanaged
 object FirebaseHelper{
-    fun registerUser(email: String, password: String, name: String, phone: String){
+    fun registerUser(email: String, password: String, name: String, phone: String, fail: ()-> Unit, success: ()-> Unit){
         val auth = FirebaseAuth.getInstance()
         val dbref = FirebaseDatabase.getInstance().getReference("user")
         auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener {
@@ -33,9 +34,12 @@ object FirebaseHelper{
 
                 uid?.let {
                     dbref.child(it).setValue(user).addOnSuccessListener {
-                        //Toast.makeText(applicationContext, "registersuccess", Toast.LENGTH_SHORT).show()
+                        val profile = UserProfileChangeRequest.Builder().setDisplayName(name).build()
+                        FirebaseAuth.getInstance().currentUser?.updateProfile(profile)
+                        success()
                     }
                         .addOnFailureListener {
+                            fail()
                             //Toast.makeText(applicationContext, "rgister fail", Toast.LENGTH_SHORT).show()
                         }
                 }
@@ -43,6 +47,7 @@ object FirebaseHelper{
 
             }else{
                 Log.d("auth", "no success")
+                fail()
                 //Toast.makeText(applicationContext, "rgister fail", Toast.LENGTH_SHORT).show()
             }
         }
@@ -121,7 +126,7 @@ object FirebaseHelper{
     fun fetchCartItems(userID: String, onSuccess: (List<CartItem>)-> Unit, onFailure: (Exception)-> Unit){
         val dbref: DatabaseReference = FirebaseDatabase.getInstance().getReference("user")
             .child(userID).child("cart")
-        dbref.addListenerForSingleValueEvent(object : ValueEventListener {
+        dbref.addValueEventListener(object : ValueEventListener {
             override fun onCancelled(error: DatabaseError) {
                 onFailure(error.toException())
             }
@@ -168,7 +173,7 @@ object FirebaseHelper{
     fun fetchOrderbyUserID(userId: String, onSuccess: (List<Order>)-> Unit, onFailure: (Exception)-> Unit){
         val dbref: DatabaseReference = FirebaseDatabase.getInstance().getReference("order")
         dbref.orderByChild("user_id").equalTo(userId)
-            .addListenerForSingleValueEvent(object : ValueEventListener {
+            .addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     val list = mutableListOf<Order>()
                     for(data in snapshot.children){
@@ -182,6 +187,18 @@ object FirebaseHelper{
                     onFailure(error.toException())
                 }
             })
+    }
+
+    fun RemoveCartItem(userId: String, productId: String){
+        val dbref: DatabaseReference = FirebaseDatabase.getInstance().getReference("user").
+        child(userId).child("cart").child(productId)
+        dbref.removeValue()
+    }
+
+    fun RemoveOrder(orderId: String){
+        val dbref: DatabaseReference = FirebaseDatabase.getInstance().getReference("order").
+        child(orderId)
+        dbref.removeValue()
     }
 
     fun notifyInformation(string: String){

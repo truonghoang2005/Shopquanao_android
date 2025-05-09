@@ -98,7 +98,7 @@ class testactivity : AppCompatActivity() {
 //        })
 
 // thu cart
-//        saveCartItem("123", cartItem("1", "router 2901", "avatar", 100.0))
+        //FirebaseAuth.getInstance().currentUser?.let { saveCartItem(it.uid, CartItem("1", "router 2901", "avatar", 100.0)) }
 //        saveCartItem("123", cartItem("2", "router 3911", "avatar", 200.0))
 //        fetchCartItems("123", {
 //            list ->
@@ -130,9 +130,7 @@ class testactivity : AppCompatActivity() {
 //            notifyInformation(err.message.toString())
 //        })
 
-        fetchProductByID("-OPAO3sxc4au3_IeNm0O",{
-            Product -> notifyInformation(Product.name.toString())
-        })
+        registerUser("abta@gmail.com", "123456", "anbt", "0384758392")
     }
     fun registerUser(email: String, password: String, name: String, phone: String){
         val auth = FirebaseAuth.getInstance()
@@ -149,7 +147,7 @@ class testactivity : AppCompatActivity() {
                         Toast.makeText(applicationContext, "registersuccess", Toast.LENGTH_SHORT).show()
                     }
                     .addOnFailureListener {
-                        Toast.makeText(applicationContext, "rgister fail", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(applicationContext, "rgister fail 9898", Toast.LENGTH_SHORT).show()
                     }
                 }
 

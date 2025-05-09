@@ -15,7 +15,8 @@ navigationUiKtx = "2.8.2"
 mediarouter = "1.7.0"
 googleGmsGoogleServices = "4.4.2"
 activity = "1.9.3"
-firebase-bom = "33.3.0"  # Phiên bản BOM mới nhất
+firebase-bom = "33.3.0"
+firebaseDatabase = "21.0.0"  # Phiên bản BOM mới nhất
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -36,6 +37,7 @@ firebase-auth-ktx = { module = "com.google.firebase:firebase-auth-ktx" }  # Sử
 firebase-firestore-ktx = { module = "com.google.firebase:firebase-firestore-ktx" }  # Sử dụng BOM
 firebase-database = { module = "com.google.firebase:firebase-database-ktx" }  # Sử dụng BOM
 kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version = "1.7.3" }
+google-firebase-database = { group = "com.google.firebase", name = "firebase-database", version.ref = "firebaseDatabase" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:orientation="vertical"
-    android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:gravity="center"
+    android:orientation="vertical"
     tools:context=".LoginActivity">
 
     <TextView
@@ -15,47 +15,31 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"
-        android:textColor="@color/black"
-        android:textSize="30sp"
         android:gravity="center"
+        android:text="ĐĂNG NHẬP"
+        android:textColor="@color/black"
+        android:textSize="30sp" />
 
-        android:text="ĐĂNG NHẬP" />
-
-    <TextView
-        android:id="@+id/txtErrEmail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="#E70C0C"
-        android:visibility="gone"
-        android:text="* Email là bắt buộc" />
 
     <EditText
         android:id="@+id/edtEmail"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:ems="10"
-        android:textColor="@color/black"
         android:hint="Email"
-        android:textColorHint="#898686"
-        android:inputType="textEmailAddress" />
-
-    <TextView
-        android:id="@+id/txtErrPass"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:textColor="#E70C0C"
-        android:text="* Mật khẩu là bắt buộc" />
+        android:inputType="textEmailAddress"
+        android:textColor="@color/black"
+        android:textColorHint="#898686" />
 
     <EditText
         android:id="@+id/edtPassword"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:ems="10"
+        android:hint="Password"
         android:inputType="textPassword"
         android:textColor="@color/black"
-        android:hint="Password"
-        android:textColorHint="#898686"/>
+        android:textColorHint="#898686" />
 
     <Button
         android:id="@+id/btnSignIn"
@@ -74,20 +58,20 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textColor="@color/black"
-            android:gravity="right"
             android:layout_marginLeft="5dp"
-            android:text="Nếu bạn không có tài khoản," />
+            android:layout_weight="1"
+            android:gravity="right"
+            android:text="Nếu bạn không có tài khoản,"
+            android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/txtSignUp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_marginLeft="3dp"
-            android:textColor="#16B5C5"
-            android:text="đăng ký" />
+            android:layout_weight="1"
+            android:text="đăng ký"
+            android:textColor="#16B5C5" />
     </LinearLayout>
 
 </LinearLayout>

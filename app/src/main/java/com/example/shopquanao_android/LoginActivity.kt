@@ -23,26 +23,38 @@ class LoginActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_login)
 
+        val user = FirebaseAuth.getInstance().currentUser
+        if(user != null){
+            findNavController(R.id.nav_host_fragment_content_main).navigate(R.id.nav_home)
+        }
+
         val btnSignIn = findViewById<Button>(R.id.btnSignIn)
         btnSignIn.setOnClickListener {
             SignInUser()
         }
+        val txtSignUp = findViewById<TextView>(R.id.txtSignUp)
+        txtSignUp.setOnClickListener {
+            SignUpUser()
+        }
 
+    }
+
+    private fun SignUpUser() {
+        val intent = Intent(this, RegisterActivity::class.java)
+        startActivity(intent)
     }
 
     private fun SignInUser() {
         val edtEmail = findViewById<EditText>(R.id.edtEmail)
         val edtPassWord = findViewById<EditText>(R.id.edtPassword)
-        val txtErrEmail = findViewById<TextView>(R.id.txtErrEmail)
-        val txtErrPassWord = findViewById<TextView>(R.id.txtErrPass)
         val email = edtEmail.text.toString().trim()
         val password = edtPassWord.text.toString().trim()
         if(email.isEmpty()){
             edtEmail.error ="Email là bắt buộc"
-            txtErrPassWord.visibility = View.GONE
+            //txtErrPassWord.visibility = View.GONE
         }else if(password.isEmpty()){
             edtEmail.error ="Mật khẩu là bắt buộc"
-            txtErrPassWord.visibility = View.GONE
+            //txtErrPassWord.visibility = View.GONE
         }else{
             FirebaseHelper.signInUser(email, password,{
                 Toast.makeText(applicationContext, "Đăng nhập thành công", Toast.LENGTH_SHORT).show()

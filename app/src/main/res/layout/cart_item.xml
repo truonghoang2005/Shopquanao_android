@@ -9,7 +9,7 @@
 
 
     <TextView
-        android:id="@+id/cart_item_price"
+        android:id="@+id/txtPrice"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -19,12 +19,12 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/cart_item_imageView"
+        app:layout_constraintStart_toEndOf="@+id/imgProduct"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.526" />
 
     <ImageView
-        android:id="@+id/cart_item_imageView"
+        android:id="@+id/imgProduct"
         android:layout_width="103dp"
         android:layout_height="100dp"
         android:layout_marginStart="60dp"
@@ -40,7 +40,7 @@
         app:srcCompat="@drawable/avatars" />
 
     <TextView
-        android:id="@+id/cart_item_name"
+        android:id="@+id/txtName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -49,12 +49,12 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/cart_item_imageView"
+        app:layout_constraintStart_toEndOf="@+id/imgProduct"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.21" />
 
     <TextView
-        android:id="@+id/cart_item_info"
+        android:id="@+id/txtCategory"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -63,15 +63,16 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/cart_item_imageView"
+        app:layout_constraintStart_toEndOf="@+id/imgProduct"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.842" />
 
-    <CheckBox
-        android:id="@+id/checkBox"
+    <ImageButton
+        android:id="@+id/btnDelete"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_marginStart="4dp"
+        android:src="@drawable/ic_delete"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

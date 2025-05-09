@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    id("com.google.gms.google-services")  // Plugin Firebase
+    alias(libs.plugins.google.gms.google.services)
 }
 
 android {
@@ -51,6 +51,7 @@ dependencies {
     implementation(libs.androidx.mediarouter)
     implementation(libs.androidx.activity)
     implementation(libs.firebase.database)
+    implementation(libs.google.firebase.database)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
