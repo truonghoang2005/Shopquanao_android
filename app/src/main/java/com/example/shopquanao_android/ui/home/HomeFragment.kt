@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -11,17 +12,18 @@ import com.example.shopquanao_android.Firebase.FirebaseHelper
 import com.example.shopquanao_android.R
 import com.example.shopquanao_android.databinding.FragmentHomeBinding
 import com.example.shopquanao_android.model.Product
-import com.example.shopquanao_android.ui.SliderItem
 import com.example.shopquanao_android.ui.ItemAdapter
 import com.example.shopquanao_android.ui.SliderAdapter
-import com.example.shopquanao_android.ui.cart.CartFragment
 import com.google.firebase.database.FirebaseDatabase
-
 
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
+
+    private lateinit var itemAdapter: ItemAdapter
+    private lateinit var sliderAdapter: SliderAdapter
+    private var originalProductList: List<Product> = emptyList() // Lưu danh sách gốc
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,67 +32,91 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Dữ liệu mẫu cho slider
-//        val sliderItems = listOf(
-//            SliderItem(R.drawable.avatars,"Price"),
-//            SliderItem(R.drawable.avatars,"Price"),
-//            SliderItem(R.drawable.avatars,"Price"),
-//            SliderItem(R.drawable.avatars,"Price"),
-//            SliderItem(R.drawable.avatars,"Price"),
-//            SliderItem(R.drawable.avatars,"Price"),
-//            SliderItem(R.drawable.avatars,"Price")
-//        )
+        // Khởi tạo adapter
+        itemAdapter = ItemAdapter(emptyList(), { item ->
+            val bundle = Bundle().apply {
+                putString("product_id", item.id)
+            }
+            findNavController().navigate(R.id.nav_itemdetail, bundle)
+        }, requireContext())
 
-        //  lập Slider RecyclerView
+        sliderAdapter = SliderAdapter(emptyList(), { item ->
+            val bundle = Bundle().apply {
+                putString("product_id", item.id)
+            }
+            findNavController().navigate(R.id.nav_itemdetail, bundle)
+        }, requireContext())
+
+        // Thiết lập RecyclerView
+        binding.gridRecyclerView.apply {
+            adapter = itemAdapter
+        }
+
+        binding.sliderRecyclerView.apply {
+            layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+            adapter = sliderAdapter
+        }
+
+        // Lấy dữ liệu sản phẩm từ Firebase
         setInformationProduct()
 
-//        val gridItems = listOf(
-//            Item(R.drawable.avatars, "Product 1"),
-//            Item(R.drawable.avatars, "Product 2"),
-//            Item(R.drawable.avatars, "Product 3"),
-//            Item(R.drawable.avatars, "Product 4"),
-//            Item(R.drawable.avatars, "Product 5"),
-//            Item(R.drawable.avatars, "Product 6"),
-//            Item(R.drawable.avatars, "Product 7"),
-//            Item(R.drawable.avatars, "Product 8")
-//
-//        )
-
-
-
+        // Thiết lập nút điều hướng đến giỏ hàng
         binding.floatingActionButton2.setOnClickListener {
             findNavController().navigate(R.id.nav_cart)
         }
+
+        // Thiết lập SearchView
+        setupSearchView()
     }
 
     private fun setInformationProduct() {
-        FirebaseHelper.fetchAllProductData({
-                list->
-            binding.gridRecyclerView.apply {
-                adapter = ItemAdapter(list,{ item ->
-                    // Khi nhấn vào item, điều hướng đến ItemDetailFragment và truyền tên sản phẩm
-                    val bundle = Bundle().apply {
-                        putString("product_id", item.id)
-                    }
-                    findNavController().navigate(R.id.nav_itemdetail, bundle)
-                }, this.context)
-            }
+        FirebaseHelper.fetchAllProductData({ list ->
+            // Lưu danh sách gốc
+            originalProductList = list
 
-            binding.sliderRecyclerView.apply {
-                layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-                adapter = SliderAdapter(list,{ item ->
-                    val bundle = Bundle().apply {
-                        putString("product_id", item.id)
-                    }
-                    findNavController().navigate(R.id.nav_itemdetail, bundle)
-                }, this.context)
-            }
+            // Cập nhật danh sách ban đầu
+            itemAdapter.updateList(list)
+            sliderAdapter.updateList(list) // Slider giữ danh sách gốc
         }, {
-
+            Toast.makeText(context, "Lỗi khi lấy dữ liệu sản phẩm", Toast.LENGTH_SHORT).show()
         })
+    }
+
+    private fun setupSearchView() {
+        binding.searchView.setOnQueryTextListener(object : androidx.appcompat.widget.SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                filterProducts(newText.orEmpty())
+                return true
+            }
+        })
+    }
+
+    private fun filterProducts(query: String) {
+        val filteredList = if (query.isEmpty()) {
+            // Nếu truy vấn rỗng, trả về danh sách gốc
+            originalProductList
+        } else {
+            // Lọc danh sách dựa trên tên sản phẩm
+            originalProductList.filter { product ->
+                product.name!!.lowercase().contains(query.lowercase())
+            }
+        }
+
+        // Chỉ cập nhật gridRecyclerView, sliderRecyclerView giữ nguyên
+        itemAdapter.updateList(filteredList)
+
+        // Hiển thị thông báo nếu không có kết quả
+        if (filteredList.isEmpty() && query.isNotEmpty()) {
+            Toast.makeText(context, "Không tìm thấy sản phẩm", Toast.LENGTH_SHORT).show()
+        }
     }
 
     override fun onDestroyView() {

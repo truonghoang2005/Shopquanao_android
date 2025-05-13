@@ -10,34 +10,19 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton3"
-        android:layout_width="51dp"
-        android:layout_height="51dp"
-        android:layout_marginEnd="16dp"
+        android:layout_width="66dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="8dp"
         android:clickable="true"
         android:contentDescription="@string/cart_button_description"
         app:backgroundTint="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/scrollView2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.915"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.459"
         app:srcCompat="@drawable/cart_plus_solid" />
-
-    <androidx.appcompat.widget.SearchView
-        android:id="@+id/searchview"
-        android:layout_width="320dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/rounded_search_background"
-        app:iconifiedByDefault="false"
-        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
-        app:layout_constraintEnd_toStartOf="@+id/floatingActionButton3"
-        app:layout_constraintHorizontal_bias="0.666"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:queryHint="Tìm kiếm sản phẩm...">
-
-    </androidx.appcompat.widget.SearchView>
 
     <ScrollView
         android:id="@+id/scrollView2"
@@ -46,7 +31,7 @@
         app:layout_constraintBottom_toTopOf="@+id/frameLayout4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchview">
+        app:layout_constraintTop_toBottomOf="@+id/floatingActionButton3">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -168,19 +153,19 @@
 
                 <TextView
                     android:id="@+id/txtDesc"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
                     android:text="Full"
                     android:textColor="#000000"
                     android:textSize="14sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toTopOf="@+id/txtCategory"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.263"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toEndOf="@+id/textView15"
                     app:layout_constraintTop_toBottomOf="@+id/textView17"
-                    app:layout_constraintVertical_bias="0.0" />
+                    app:layout_constraintVertical_bias="0.025" />
 
                 <TextView
                     android:id="@+id/textView11"
@@ -256,6 +241,7 @@
             android:id="@+id/btnAddCart"
             android:layout_width="145dp"
             android:layout_height="51dp"
+            android:layout_marginStart="30dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
             android:backgroundTint="#555C7C"
@@ -273,7 +259,7 @@
             android:layout_width="145dp"
             android:layout_height="51dp"
             android:layout_marginTop="5dp"
-            android:layout_marginEnd="10dp"
+            android:layout_marginEnd="20dp"
             android:layout_marginBottom="5dp"
             android:text="Mua Ngay"
             app:cornerRadius="10dp"

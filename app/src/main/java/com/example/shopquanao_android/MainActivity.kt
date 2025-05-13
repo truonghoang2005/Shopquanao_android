@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.appBarMain.toolbar)
 
-        binding.appBarMain.fab.setOnClickListener {
+        //binding.appBarMain.fab.setOnClickListener {
     //        view ->
 //            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
 //                .setAction("Action", null)
@@ -44,9 +44,9 @@ class MainActivity : AppCompatActivity() {
 //            val intent = Intent(this, testactivity::class.java)
 //            startActivity(intent)
 
-            val intent = Intent(this, testactivity::class.java)
-            startActivity(intent)
-        }
+            //val intent = Intent(this, testactivity::class.java)
+           // startActivity(intent)
+        //}
 
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView

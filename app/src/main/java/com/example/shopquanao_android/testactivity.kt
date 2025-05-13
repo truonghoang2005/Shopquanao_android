@@ -1,4 +1,4 @@
-package com.example.shopquanao_android
+/*package com.example.shopquanao_android
 
 import android.os.Bundle
 import android.util.Log
@@ -335,3 +335,4 @@ class testactivity : AppCompatActivity() {
 
 
 
+*/

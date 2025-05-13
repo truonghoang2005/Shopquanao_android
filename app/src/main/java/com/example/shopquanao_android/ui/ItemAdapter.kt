@@ -12,9 +12,9 @@ import com.example.shopquanao_android.Firebase.FirebaseHelper
 import com.example.shopquanao_android.R
 import com.example.shopquanao_android.model.Product
 
-data class Item(val imageResId: Int, val text: String)
+data class Item(val imageResId: Int, val text: String, val price : Double)
 
-class ItemAdapter(private val items: List<Product>, private val onItemClick: (Product) -> Unit, private val contextImage: Context) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
+class ItemAdapter(private var items: List<Product>, private val onItemClick: (Product) -> Unit, private val contextImage: Context) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
 
     class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 //    {
@@ -26,6 +26,7 @@ class ItemAdapter(private val items: List<Product>, private val onItemClick: (Pr
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item, parent, false)
         return ItemViewHolder(view)
     }
+
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
 //        val item = items[position]
@@ -39,12 +40,13 @@ class ItemAdapter(private val items: List<Product>, private val onItemClick: (Pr
         holder.itemView.apply {
             val imgProduct: ImageView = findViewById(R.id.imgProduct)
             val txtName: TextView = findViewById(R.id.txtName)
+            val txtProductPrice: TextView = findViewById(R.id.txtProductPrice)
             val idImage = items[position].photo?.let { FirebaseHelper.getDrawableId(contextImage, it) }
             if (idImage != null) {
                 imgProduct.setImageResource(idImage)
             }
             txtName.setText(items[position].name)
-
+            txtProductPrice.setText(items[position].price.toString())
             imgProduct.setOnClickListener{
                 onItemClick(items[position])
             }
@@ -52,4 +54,8 @@ class ItemAdapter(private val items: List<Product>, private val onItemClick: (Pr
     }
 
     override fun getItemCount(): Int = items.size
+    fun updateList(newList: List<Product>) {
+        items = newList
+        notifyDataSetChanged()
+    }
 }

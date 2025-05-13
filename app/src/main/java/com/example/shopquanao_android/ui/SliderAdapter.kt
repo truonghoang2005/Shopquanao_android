@@ -14,7 +14,7 @@ import com.example.shopquanao_android.model.Product
 
 data class SliderItem(val imageResId: Int, val text: String)
 
-class SliderAdapter(private val items: List<Product>, private val onItemClick: (Product) -> Unit, private val conTextimg: Context) : RecyclerView.Adapter<SliderAdapter.ViewHolder>() {
+class SliderAdapter(private var items: List<Product>, private val onItemClick: (Product) -> Unit, private val conTextimg: Context) : RecyclerView.Adapter<SliderAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 //        val imageView: ImageView = itemView.findViewById(R.id.imageView3)
@@ -52,4 +52,8 @@ class SliderAdapter(private val items: List<Product>, private val onItemClick: (
     }
 
     override fun getItemCount(): Int = items.size
+    fun updateList(newList: List<Product>) {
+        items = newList
+        notifyDataSetChanged()
+    }
 }

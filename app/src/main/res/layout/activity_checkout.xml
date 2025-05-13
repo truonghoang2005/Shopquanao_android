@@ -32,34 +32,36 @@
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
+            android:layout_height="42dp"
+            android:rotationX="0"
+            android:text="Vui lòng nhập các thông tin cần thiết"
             android:textColor="@color/black"
             android:textSize="20sp"
-            android:layout_height="wrap_content"
-            android:text="Vui lòng nhập các thông tin cần thiết" />
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/edtPhone"
-            android:layout_width="match_parent"
+            android:layout_width="371dp"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Số điện thoại"
+            android:inputType="phone"
             android:textColor="@color/black"
-            android:textColorHint="#8A8A8A"
-            android:inputType="phone" />
+            android:textColorHint="#8A8A8A" />
 
         <EditText
             android:id="@+id/edtAddress"
-            android:layout_width="match_parent"
+            android:layout_width="372dp"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:hint="Địa chỉ nhận hàng"
             android:inputType="text"
             android:textColor="@color/black"
-            android:hint="Địa chỉ nhận hàng"
             android:textColorHint="#8A8A8A" />
 
         <Button
             android:id="@+id/btnOrder"
-            android:layout_width="match_parent"
+            android:layout_width="199dp"
             android:layout_height="wrap_content"
             android:background="#2190ED"
             android:text="Đặt hàng" />

@@ -35,6 +35,8 @@ class ItemDetailFragment : Fragment() {
     ): View {
         _binding = FragmentItemDetailBinding.inflate(inflater, container, false)
         return binding.root
+
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -46,6 +48,11 @@ class ItemDetailFragment : Fragment() {
         setInformationSlide()
         setButtonAddcart(productId)
         setButtonBuy(productId)
+
+
+        binding.floatingActionButton3.setOnClickListener {
+            findNavController().navigate(R.id.nav_cart)
+        }
     }
 
     private fun setButtonBuy(productId: String) {

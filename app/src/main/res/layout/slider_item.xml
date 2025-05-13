@@ -28,9 +28,13 @@
 
     <TextView
         android:id="@+id/txtName"
-        android:layout_width="119dp"
-        android:layout_height="24dp"
+        android:layout_width="0dp"
+        android:layout_height="37dp"
+        android:paddingStart="10dp"
+        android:paddingTop="0dp"
+        android:paddingEnd="10dp"
         android:text="Price"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
