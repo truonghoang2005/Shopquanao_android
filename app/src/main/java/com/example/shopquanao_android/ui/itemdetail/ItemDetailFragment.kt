@@ -116,8 +116,8 @@ class ItemDetailFragment : Fragment() {
 
             val sliderItemsDetail = listOf(
                 SliderItemDetail(product.photo.toString()),
-                SliderItemDetail("avatars"),
-                SliderItemDetail("avatars")
+                SliderItemDetail(product.photo1.toString()),
+                SliderItemDetail(product.photo2.toString())
             )
 
             // Thiết lập Slider RecyclerView
