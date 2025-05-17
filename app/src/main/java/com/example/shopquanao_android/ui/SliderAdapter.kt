@@ -52,6 +52,7 @@ class SliderAdapter(private var items: List<Product>, private val onItemClick: (
     }
 
     override fun getItemCount(): Int = items.size
+
     fun updateList(newList: List<Product>) {
         items = newList
         notifyDataSetChanged()

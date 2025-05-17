@@ -46,7 +46,7 @@ class ItemAdapter(private var items: List<Product>, private val onItemClick: (Pr
                 imgProduct.setImageResource(idImage)
             }
             txtName.setText(items[position].name)
-            txtProductPrice.setText(items[position].price.toString())
+            txtProductPrice.setText(items[position].price.toString()+"$")
             imgProduct.setOnClickListener{
                 onItemClick(items[position])
             }

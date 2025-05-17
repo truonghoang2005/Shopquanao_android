@@ -1,5 +1,6 @@
 package com.example.shopquanao_android.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +13,7 @@ import com.example.shopquanao_android.Firebase.FirebaseHelper
 import com.example.shopquanao_android.R
 import com.example.shopquanao_android.databinding.FragmentHomeBinding
 import com.example.shopquanao_android.model.Product
+import com.example.shopquanao_android.testactivity
 import com.example.shopquanao_android.ui.ItemAdapter
 import com.example.shopquanao_android.ui.SliderAdapter
 import com.google.firebase.database.FirebaseDatabase
@@ -36,7 +38,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Khởi tạo adapter
+
         itemAdapter = ItemAdapter(emptyList(), { item ->
             val bundle = Bundle().apply {
                 putString("product_id", item.id)
@@ -51,7 +53,7 @@ class HomeFragment : Fragment() {
             findNavController().navigate(R.id.nav_itemdetail, bundle)
         }, requireContext())
 
-        // Thiết lập RecyclerView
+
         binding.gridRecyclerView.apply {
             adapter = itemAdapter
         }
@@ -66,7 +68,9 @@ class HomeFragment : Fragment() {
 
         // Thiết lập nút điều hướng đến giỏ hàng
         binding.floatingActionButton2.setOnClickListener {
-            findNavController().navigate(R.id.nav_cart)
+//            val intent = Intent(this.context, testactivity::class.java)
+//            startActivity(intent)
+           findNavController().navigate(R.id.nav_cart)
         }
 
         // Thiết lập SearchView
@@ -101,10 +105,8 @@ class HomeFragment : Fragment() {
 
     private fun filterProducts(query: String) {
         val filteredList = if (query.isEmpty()) {
-            // Nếu truy vấn rỗng, trả về danh sách gốc
             originalProductList
         } else {
-            // Lọc danh sách dựa trên tên sản phẩm
             originalProductList.filter { product ->
                 product.name!!.lowercase().contains(query.lowercase())
             }
@@ -114,9 +116,9 @@ class HomeFragment : Fragment() {
         itemAdapter.updateList(filteredList)
 
         // Hiển thị thông báo nếu không có kết quả
-        if (filteredList.isEmpty() && query.isNotEmpty()) {
-            Toast.makeText(context, "Không tìm thấy sản phẩm", Toast.LENGTH_SHORT).show()
-        }
+//        if (filteredList.isEmpty() && query.isNotEmpty()) {
+//            Toast.makeText(context, "Không tìm thấy sản phẩm", Toast.LENGTH_SHORT).show()
+//        }
     }
 
     override fun onDestroyView() {

@@ -1,4 +1,4 @@
-/*package com.example.shopquanao_android
+package com.example.shopquanao_android
 
 import android.os.Bundle
 import android.util.Log
@@ -24,7 +24,7 @@ class testactivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_testactivity)
 
-/*----------------- lay duong dan len hinh */
+//----------------- lay duong dan len hinh
 //        var st = this.resources.getIdentifier("avatars", "drawable", this.packageName)
 //        val bt4 = findViewById<Button>(R.id.button4)
 //        val txt4 = findViewById<TextView>(R.id.textView4)
@@ -34,7 +34,7 @@ class testactivity : AppCompatActivity() {
 //            img.setImageResource(st)
 //        }
 
-        /*----------------- lay, day du lieu thu nghiem */
+       // ----------------- lay, day du lieu thu nghiem
         //val dbref = FirebaseDatabase.getInstance().getReference("user")
 //        var user: user = user("124", "lo tahng")
 //        dbref.child(user.id).setValue(user).addOnCompleteListener {
@@ -130,7 +130,37 @@ class testactivity : AppCompatActivity() {
 //            notifyInformation(err.message.toString())
 //        })
 
-        registerUser("abta@gmail.com", "123456", "anbt", "0384758392")
+        //registerUser("abta@gmail.com", "123456", "anbt", "0384758392")
+//     shopquanao
+        // ao 1: Áo sơ mi nam dài tay đỏ M8
+        //ÁO SƠ MI NAM CÔNG SỞ TAY DÀI MÀU ĐỎ TƯƠI, SIZE M-6XL TỪ 40-90KG
+        // ao 2: Áo Sơ Mi Tay Ngắn Nam Mập BS2951
+        //Áo Sơ Mi Nam Ngắn Tay Cao Cấp Phối Màu Chất Cotton Lạnh Form Chuẩn
+        // ao 3: Áo Thun Cổ Trụ Big Size Navy BST171
+        //Áo thun nam cổ trụ , áo thun nam thể thao co giản 2 chiều có big size từ 40-100kg Dvin_fashion
+        // ao 4: Quần Sooc Jean Nữ Dáng Suông DQ4224J08905 -XCN1
+        //Quần sooc jean nữ đính full đá phối nơ gấu gập wash màu QCCC2868 hottrend 2025
+        // ao 5: Áo khoác nữ hình chú sóc ngộ nghĩnh
+        // Áo Khoác Nữ Thun Gân In Họa Tiết Hoạt Hình Dễ Thương 6 Túi By BUBBLE GUM
+        // ao 6: IELGY Áo thun ngắn tay màu xanh bơ
+        //IELGY Áo thun ngắn tay màu xanh bơ dáng rộng phiên bản Hàn Quốc dành cho nữ
+        // quan 1: Quần suông công sở lưng cao - TK01 -NUDE / S
+        // quan 2: Slim Jeans lam nhạt
+        // quan 3: Quần short nam vải selvedge, cạp vừa, ống thẳng, màu hồng
+        // quan 5: Quần Jeans nữ wash ống rộng New Jean
+        var list: List<Product> = listOf(
+            Product("1", "Áo sơ mi nam dài tay", "ÁO SƠ MI NAM CÔNG SỞ TAY DÀI MÀU ĐỎ TƯƠI, SIZE M-6XL TỪ 40-90KG", "áo nam","ao_1", 20.0),
+            Product("1", "Áo Sơ Mi Tay Ngắn Nam", "Áo Sơ Mi Nam Ngắn Tay Cao Cấp Phối Màu Chất Cotton Lạnh Form Chuẩn", "áo nam","ao_2", 21.0),
+            Product("1", "Áo Thun Cổ Trụ Big Size Navy", "Áo thun nam cổ trụ , áo thun nam thể thao co giản 2 chiều có big size từ 40-100kg Dvin_fashion", "áo nam","ao_3", 22.1),
+            Product("1", "Quần Sooc Jean Nữ Dáng Suông", "Quần sooc jean nữ đính full đá phối nơ gấu gập wash màu QCCC2868 hottrend 2025", "quần nữ","ao_4", 23.0),
+            Product("1", "Áo khoác nữ hình chú sóc", "Áo Khoác Nữ Thun Gân chú sóc Hoạt Hình Dễ Thương 6 Túi By BUBBLE GUM", "áo nữ","ao_5", 24.3) ,
+            Product("1", "Áo thun ngắn tay màu xanh bơ", "IELGY Áo thun ngắn tay màu xanh bơ dáng rộng phiên bản Hàn Quốc dành cho nữ", "áo nữ","ao_6", 20.0),
+            Product("1", "Quần suông công sở", "Quần suông công sở lưng cao - TK01 -NUDE / S", "quần nữ","quan_1", 21.4),
+            Product("1", "Slim Jeans lam nhạt", "Slim Jeans lam nhạt", "quần nam","quan_2", 22.0),
+            Product("1", "Quần short nam", "Quần short nam vải selvedge, cạp vừa, ống thẳng, màu hồng", "quần nam","quan_3", 23.0),
+            Product("1", "Quần Jeans nữ ống rộng", "Quần Jeans nữ wash ống rộng New Jean", "quần nữ","quan_5", 24.5)
+        )
+        saveProductData(list)
     }
     fun registerUser(email: String, password: String, name: String, phone: String){
         val auth = FirebaseAuth.getInstance()
@@ -335,4 +365,3 @@ class testactivity : AppCompatActivity() {
 
 
 
-*/

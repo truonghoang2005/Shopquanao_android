@@ -50,7 +50,7 @@ class CartItemAdapter(private val items: List<CartItem>, private val contextImag
             }
             holder.txtName.setText(item.product_name)
             holder.txtPrice.setText(item.product_price.toString() + "$")
-            holder.txtCategory.setText("Thiết bị mạng")
+            holder.txtCategory.setText("quần áo")
             holder.imgProduct.setOnClickListener {
                 val bundle = Bundle().apply {
                     putString("product_id", item.product_id)
